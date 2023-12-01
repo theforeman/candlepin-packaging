@@ -2,10 +2,11 @@
 all:
   vars:
     copr_project_user: "@theforeman"
-    candlepin_version: 4.3
+    candlepin_version: 'nightly'
   children:
     packages: {}
     copr_projects: {}
+    repoclosures: {}
 
 copr_projects:
   vars:
@@ -24,3 +25,15 @@ packages:
     build_package_build_system: copr
   hosts:
     candlepin: {}
+
+repoclosures:
+  hosts:
+    candlepin-repoclosure-el8:
+      repoclosure_target_repos:
+        el8:
+          - "el8-candlepin-{{ candlepin_version }}"
+      repoclosure_target_dist: el8
+      repoclosure_lookaside_repos:
+        el8:
+          - el8-baseos
+          - el8-appstream
