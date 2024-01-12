@@ -10,14 +10,14 @@ all:
 
 copr_projects:
   vars:
-    rhel_8: '8'
     root_repo_url: https://download.copr.fedorainfracloud.org/results/@theforeman
     candlepin_staging: "{{ root_repo_url }}/candlepin-{{ candlepin_version }}-staging"
   hosts:
     candlepin-copr:
       copr_project_name: "candlepin-{{ candlepin_version }}-staging"
       copr_project_chroots:
-        - name: "rhel-{{ rhel_8 }}-x86_64"
+        - name: "rhel-9-x86_64"
+        - name: "rhel-8-x86_64"
 
 packages:
   vars:
@@ -37,3 +37,12 @@ repoclosures:
         el8:
           - el8-baseos
           - el8-appstream
+    candlepin-repoclosure-el9:
+      repoclosure_target_repos:
+        el9:
+          - "el9-candlepin-{{ candlepin_version }}-staging"
+      repoclosure_target_dist: el9
+      repoclosure_lookaside_repos:
+        el9:
+          - el9-baseos
+          - el9-appstream
