@@ -31,7 +31,7 @@ repoclosures:
     candlepin-repoclosure-el8:
       repoclosure_target_repos:
         el8:
-          - "el8-candlepin-{{ candlepin_version }}"
+          - "el8-candlepin-{{ candlepin_version }}-staging"
       repoclosure_target_dist: el8
       repoclosure_lookaside_repos:
         el8:
