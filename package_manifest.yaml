@@ -2,7 +2,7 @@
 all:
   vars:
     copr_project_user: "@theforeman"
-    candlepin_version: 'nightly'
+    candlepin_version: '4.8'
   children:
     packages: {}
     copr_projects: {}
