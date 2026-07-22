@@ -16,6 +16,7 @@ copr_projects:
     candlepin-copr:
       copr_project_name: "candlepin-{{ candlepin_version }}-staging"
       copr_project_chroots:
+        - name: "rhel-10-x86_64"
         - name: "rhel-9-x86_64"
         - name: "rhel-8-x86_64"
 
@@ -28,6 +29,15 @@ packages:
 
 repoclosures:
   hosts:
+    candlepin-repoclosure-el10:
+      repoclosure_target_repos:
+        el10:
+          - "el10-candlepin-{{ candlepin_version }}-staging"
+      repoclosure_target_dist: el10
+      repoclosure_lookaside_repos:
+        el10:
+          - el10-baseos
+          - el10-appstream
     candlepin-repoclosure-el8:
       repoclosure_target_repos:
         el8:
